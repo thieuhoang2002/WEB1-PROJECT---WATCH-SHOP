@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../assets/img/WS_icon.svg" rel="shortcut icon" />
+    <link href="../assets/css/home.css" rel="stylesheet" />
+    <link href="../assets/css/responsive_index.css" rel="stylesheet" />
+    <link href="../assets/icon/themify-icons/themify-icons.css" rel="stylesheet" />
+
+    <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
+    <!--wow animation-->
+    <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
+    <!--wow animation-->
+    <script src="../assets/js/home.js"></script>
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- <link href="../assets/css/blog.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script lang="javascript" src="../assets/JS/headerValidation.js"></script>
+    <title>Watch Shop Project</title>
+</head>
+
+
+<body>
+
+    <div class="home">
+
+        <!--nút chuyển lên đầu trang-->
+        <div class="ontoppage"><a href="#"><i class="ti-angle-up"></i></a></div>
+        <!--nút đóng bảng hotlines-->
+        <div onclick="closehotlines();" class="close-hotlines"><i class="ti-close"></i></div>
+        <!--nút mở lại bảng hotlines-->
+        <div onclick="onpenhotlines();" class="open-hotlines"><i class="ti-angle-right"></i></div>
+        <div class="hotlines">
+            <ul>
+                <li class="hotline"><i class="ti-mobile"> </i>
+                    <p>Phone: &nbsp;</p> <a href="tel:+84 3789981215">+84 3789981215</a>
+                </li>
+                <li class="hotline"><i class="ti-facebook"></i>
+                    <p>Facebook: &nbsp;</p><a href="htpps://facebook.com/thieuhoang0903">thieuhoang0903</a>
+                </li>
+                <li class="hotline"><i class="ti-email"></i>
+                    <p>Email:&nbsp;</p><a href="mailto:mail@mail.com">mail@mail.com</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Start header -->
+        <nav class="header__navbar">
+            <ul class="header__navbar-list-icon">
+                <li class="header__navbar-item">
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fa-brands fa-tiktok"></i>
+                    </a>
+                </li>
+            </ul>
+
+
+            <i class="header__navbar-list-titile">Welcome to Watch Shop</i>
+
+
+
+            <i class="header__navbar-list-hotline">Hotline: 0356856732</i>
+
+        </nav>
+        <div class="header__menu sticky">
+            <div class="header__logo-img">
+                <a href="index.html">
+                    <img src="../assets/img/WS_Logo2.svg">
+                </a>
+            </div>
+
+            <div class="header__menu-item-mid">
+                <a href="../htmls/index.html" class="header__menu-item">Home</a>
+                <a href="../htmls/shop.html" class="header__menu-item">Shop</a>
+                <a href="../htmls/blog.html" class="header__menu-item">Blog</a>
+                <a href="../htmls/about.html" class="header__menu-item">About</a>
+                <a href="../htmls/contact.html" class="header__menu-item">Contact</a>
+            </div>
+
+            <div class="header__menu-item-right">
+                <span class="display-user-name" id="display-user-name"></span>
+                <div class="header__menu-item-right-icon" onclick="showUser()">
+                    <i class="fa-regular fa-user "></i>
+                </div>
+
+                <div id="sub-nav-user">
+                    <div class="sub__logout click" onclick="logout()">Logout<i class="ti-arrow-circle-right"></i>
+                    </div>
+                    <div id="sub-location-admin" class="sub__location__admin"></div>
+                </div>
+
+                <div class="header__menu-item-right-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
+        </div>
+        <!-- End header -->
+        <!-- Start model login -->
+        <div class="modal js-modalLogin">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <div class="auth-form">
+
+                    <div class="auth-form__container">
+                        <div class="auth-form__headear">
+                            <h3 class="auth-form__heading">Login</h3>
+                        </div>
+
+                        <div class="auth-form__form">
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="username2">Username</label>
+                                <input notBlank2 errNotBlank2="User name can not be blank!" type="text"
+                                    class="auth-form__input" name="username2" id="username2">
+                                <label class="error" for="username2"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="password2">Password</label>
+                                <input notBlank2 errNotBlank2="Password can not be blank!" type="password"
+                                    class="auth-form__input" name="password2" id="password2">
+                                <label class="error" for="password2"></label>
+                            </div>
+
+                            <span class="question">Don't have account? <span class="sign_up"
+                                    onclick="showModelSignUp()">Sign Up<span></span>
+                                </span></span>
+
+                            <div class="button">
+                                <button type="button" class="btncancel js-btncancel-login">Cancel</button>
+                                <button type="button" class="btnLogin js-btnLogin" onclick="checkFormLogin()">Login</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- End model login -->
+        <!-- Start model signUp -->
+        <div id="signUp" class="modal js-modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <div class="auth-form">
+
+                    <div class="auth-form__container">
+                        <div class="auth-form__headear">
+                            <h3 class="auth-form__heading">Sign Up</h3>
+                            <span class="auth-form__switch-btn" onclick="showModelLogIn2()">Login</span>
+                        </div>
+
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="fullName">Full Name</label>
+                                <input notBlank errNotBlank="Name can not be blank!" type="text"
+                                    class="auth-form__input" name="fullName" id="fullName">
+                                <label class="error" for="fullName"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="address">Address</label>
+                                <input notBlank errNotBlank="Address can not be blank!" type="text"
+                                    class="auth-form__input" name="address" id="address">
+                                <label class="error" for="address"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="phone">Phone</label>
+                                <input notBlank errNotBlank="Phone can not be blank!" type="text"
+                                    class="auth-form__input" name="phone" id="phone">
+                                <label class="error" for="phone"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="username">Username</label>
+                                <input checkUserName notBlank errNotBlank="User name can not be blank!" errUserName="Username already exists!" type="text"
+                                    class="auth-form__input" name="username" id="username">
+                                <label class="error" for="username"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="password">Password</label>
+                                <input notBlank errNotBlank="Password can not be blank!" type="password"
+                                    class="auth-form__input" name="password" id="password">
+                                <label class="error" for="password"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="repeatPassword">Repeat Password</label>
+                                <input repeatpass notBlank errNotBlank="Repeat password can not be blank!" errRepeatPass="Password and repassword do not match!" type="password"
+                                    class="auth-form__input" name="repeatPassword" id="repeatpassword">
+                                <label class="error" for="repeatpassword"></label>
+                            </div>
+                           
+                            <div class="button">
+                                <button type="button" class="btncancel js-btncancel-signup">Cancel</button>
+                                <button type="button" class="btnsignup js-btnsignup " onclick="checkFormSignup()">Sign Up</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End model signUp -->
+
+        <main>
+            <!-- start body -->
+            <div class="img__container">
+                <img src="../assets/img/watch/blog_header.png" alt="">
+            </div>
+            <article class="article">
+                <div class="description">
+                    <h1 class="main_h1">2 Most Expensive Hublot Watches</h1>
+                    <h2 class="main_h2">Hublot Big Bang One Million $ - 1,000,000 USD</h2>
+                    <p class="description__product">
+                        Sir Jean-Claude Biver once revealed in an interview that this watch was sold over the phone
+                        without giving the buyer a preview. This implicitly proves that Hublot's reputation is great and
+                        receives the trust of customers. Inside the watch, the HUB Solo T movement cleverly shows off a
+                        tourbillon cage at 6 o'clock, which can run for 120 hours.
+                    </p>
+                    <div class="description__img__product">
+                        <img class="description__img__product" src="../assets/img/watch/blog2.jpg" alt="">
+                    </div>
+                    <p class="description__product">
+                        demonstrates Hublot's power as a luxury brand and the price tag is irresistible for someone with
+                        that
+                        much cash. The HUB Solo T movement flaunts a tourbillon at 6 o'clock, along with hand-winding
+                        and a
+                        120-hour power reserve.
+                    </p>
+
+                    <h2 class="main_h2">Hublot Black Caviar Bang Watch - $1,000,000</h2>
+                    <p class="description__product">
+                        The Hublot brand has a number of multi-million dollar models, and those are the watches that
+                        always sell.
+                        Because when someone buys a high-priced watch, most of them want to be known.
+                    </p>
+                    <div class="description__img__product">
+                        <img class="description__img__product" src="../assets/img/watch/blog3.jpg" alt="">
+                    </div>
+                    <p class="description__product">
+                        In second place we would like to mention the Hublot Black Caviar Bang, whose white gold case is
+                        further decorated with 531 black diamonds on the case, bezel and clasp. The dial also features a
+                        white diamond band that acts as an arc of energy to the left of the tourbillon cage.
+                    </p>
+
+
+                    <h1 class="main_h1">The Royal Oak Concept Flying Tourbillon GMT watch presents itself in an
+                        innovative green case</h1>
+                    <p class="description__product">
+                        Always taking celebrations seriously, in fact, the Concept line was created by the Swiss brand
+                        as a
+                        special project to mark the 30th birthday of the Royal Oak in 2002. Since then, the Concept line
+                        has
+                        acts as the most avant-garde of the Royal Oak collection, with very limited releases, but
+                        certainly bold
+                        modern designs with groundbreaking technology inside.
+                    </p>
+                    <div class="description__img__product">
+                        <img class="description__img__product" src="../assets/img/watch/blog4.jpg" alt="">
+                    </div>
+                    <p class="description__product">
+                        The Royal Oak Concept Flying Tourbillon GMT was first introduced in 2018, but the general
+                        character of
+                        the line is derived from the Concept GMT Tourbillon (not flying) version of 2011. The latest
+                        version has
+                        been completed with flying tourbillon cage. Enclosing the watch is a 44mm x 16.1mm blue ceramic
+                        case, sapphire
+                        crystal front and back revealing the movements of both the dial and the movement.
+                    </p>
+
+                    <h1 class="main_h1">Super rare Rolex Pink Milgauss 6541 Appears at Upcoming Antiquorum House
+                        Auction!</h1>
+                    <div class="description__img__product">
+                        <img class="description__img__product" src="../assets/img/watch/blog5.jpg" alt="">
+                    </div>
+                    <p class="description__product">
+                        The Milgauss was the first watch to have a case containing a wrought iron ring surrounding the
+                        movement.
+                        Based on the principles of the Faraday cage, the case structure protected the movement from
+                        magnetic
+                        influences, which set the Milgauss apart from other models of the time.
+                    </p>
+                    <p class="description__product">
+                        Milgauss was developed with a clear purpose: to serve in a specialized environment at a time
+                        when
+                        industrial progress was rapid. Made by Rolex in 1958, the Milgauss is a watch for engineers,
+                        doctors,
+                        and scientists forced to spend a lot of time working in power plants and other facilities with
+                        strong
+                        magnetic fields.
+                    </p>
+                    <div class="description__img__product">
+                        <img class="description__img__product" src="../assets/img/watch/blog6.jpg" alt="">
+                    </div>
+                    <p class="description__product">
+                        It is believed that Rolex produces only about 200 Milgauss with model number 6541, one of the
+                        good
+                        reasons why watches are so rare and so attractive to true collectors. In addition to the wrought
+                        iron
+                        ring surrounding the movement, the Milgauss 6541 features a classic ancestral dial, a rotatable
+                        bezel,
+                        and a lightning-shaped seconds hand. This combination gives the watch a sporty look, but not to
+                        be confused
+                        with the Submariner of the same period.
+                    </p>
+                    <p class="description__product">
+                        At the first stage, the Milgauss inscription on the dial is red, matching the red triangle
+                        indication on the
+                        bezel. However, as time went on, the lettering faded to pink, further adding to the vintage
+                        element of this
+                        watch. And that is also the reason why this watch is also called “Pink Milgauss” by auction
+                        houses.
+                    </p>
+                </div>
+            </article>
+
+        </main>
+
+
+        <!-- Start footer -->
+        <footer class="footer">
+            <div class="footer__column">
+                <h3 class="footer__heading">Address</h3>
+                <ul class="footer__information">
+                    <li class="Adress">
+                        <a class="adress"
+                            href="https://www.google.com/search?q=273+An+D.+V%C6%B0%C6%A1ng%2C+Ph%C6%B0%E1%BB%9Dng+3%2C+Qu%E1%BA%ADn+5%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000%2C+Vietnam&oq=273+An+D.+V%C6%B0%C6%A1ng%2C+Ph%C6%B0%E1%BB%9Dng+3%2C+Qu%E1%BA%ADn+5%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000%2C+Vietnam&aqs=chrome..69i57.1233j0j7&sourceid=chrome&ie=UTF-8">Address:
+                            273 An D. Vuong, Ward 3, District 5, Ho Chi Minh City, Vietnam.</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">Customer support</h3>
+                <ul class="footer__item">
+                    <li class="footer__item1">
+                        <p>Payment methods</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Shipping and deliveryg</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Installment purchase guide</p>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">About watch shop</h3>
+                <ul class="footer__item">
+                    <li class="footer__item1">
+                        <p>Recruit</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Watch shop terms</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Privacy policy</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Genuine</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">New notification</h3>
+                <form action="" method="get" name="frmsubcribe" validate="">
+                    <input class="txmail" type="email" name="email" value="" placeholder="email"><br><br>
+                    <input class="btnsubcribe" type="button" name="btnsubcribe" value="SUBCRIBE" id="btnsubcribe">
+                </form>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+<script lang="javascript" src="../assets/JS/header.js"></script>
+<script src="../assets/js/signUp.js"></script>
+<script>displayUserName()</script>
+<script src="../assets/JS/user.js"></script>
+
+</html>

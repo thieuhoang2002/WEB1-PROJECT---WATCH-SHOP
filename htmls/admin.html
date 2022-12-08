@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <title>Management Page</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/iconMain/admin.png">
+</head>
+
+<!-- Analysis page -->
+<!-- 1. SideBar -->
+    <!-- 1.1. Header -->
+        <!-- 1.1.1. Avatar -->
+        <!-- 1.1.2. Title -->
+    <!-- 1.2. Navbar -->
+        <!-- 1.2.1. Statistic -->
+            <!-- 1.2.1.1. Classify -->
+            <!-- 1.2.1.2. Product -->
+        <!-- 1.2.2. Manage-->
+            <!-- 1.2.2.1. Product-->
+            <!-- 1.2.2.2. Add Product-->
+            <!-- 1.2.2.3. Order-->
+            <!-- 1.2.2.4. Customer -->
+        <!-- 1.2.3. Back Home-->
+        <!-- 1.2.4. Log Out-->
+        
+<!-- 2. Container -->
+    <!-- 2.1. Statistic Classify UI -->
+    <!-- 2.2. Statistic Product UI -->
+    <!-- 2.3. Product  UI -->
+    <!-- 2.4. Add Product UI -->
+    <!-- 2.5. Order UI -->
+    <!-- 2.6. Customer UI -->
+<body>
+    <div class="admin-app">
+        <!-- 1. SideBar -->
+        <section class="admin-sidebar">
+            <!-- 1.1. Header -->
+            <div class="admin-sidebar__header">
+                <!-- 1.1.1. Avatar -->
+                <div class="admin-sidebar__avatar"></div>
+                <!-- 1.1.2. Title -->
+                <h3 class="admin-sidebar__title">Admin</h3>
+            </div>
+
+            <!-- 1.2. Navbar -->
+            <ul class="admin-sidebar__navbar">
+                <!-- 1.2.1. Statistic -->
+                <li class="admin-sidebar__item-lv1 js-admin-sidebar__item-lv1">
+                    <div class="admin-sidebar__item-lv1-container js-admin-sidebar__item-lv1-container admin-sidebar__item-lv1-container--hover">
+                        <i class="ti-stats-up"></i>
+                        <span>Statistic</span>
+                        <i class="ti-angle-down"></i>
+                    </div>
+                    <ul class="admin-sidebar__subnav js-admin-sidebar__subnav">
+                        <!-- 1.2.1.1. Classify -->
+                        <li class="admin-sidebar__item-lv2">
+                            Brand
+                        </li>
+                        <!-- 1.2.1.2. Product -->
+                        <li class="admin-sidebar__item-lv2">
+                            Product
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 1.2.2. Manage-->
+                <li class="admin-sidebar__item-lv1 js-admin-sidebar__item-lv1">
+                    <div class="admin-sidebar__item-lv1-container js-admin-sidebar__item-lv1-container admin-sidebar__item-lv1-container--hover">
+                        <i class="ti-pencil-alt"></i>
+                        <span>Manage</span>
+                        <i class="ti-angle-down"></i>
+                    </div>
+                    <ul class="admin-sidebar__subnav js-admin-sidebar__subnav">
+                        <!-- 1.2.2.1. Product-->
+                        <li class="admin-sidebar__item-lv2">
+                            Products
+                        </li>
+                        <!-- 1.2.2.2. Add Product-->
+                        <li class="admin-sidebar__item-lv2">
+                            Add Product
+                        </li>
+                        <!-- 1.2.2.3. Order-->
+                        <li class="admin-sidebar__item-lv2">
+                            Orders
+                        </li>
+                        <!-- 1.2.2.4. Customer -->
+                        <li class="admin-sidebar__item-lv2">
+                            Customers
+                        </li>
+                    </ul>
+                </li>
+                <!-- 1.2.3 Back Home -->
+                <li class="admin-sidebar__item-lv1-self" onclick="backHome()">
+                    <i class="ti-home"></i>
+                    <span>Back Home</span>
+                </li>
+                <!-- 1.2.3 Log Out -->
+                <li class="admin-sidebar__item-lv1-self" onclick ="logOutAdmin()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Log Out</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 2. Container -->
+        <section class="admin-container">
+            <div class="admin-container__body">
+
+                <!-- Thong ke brand -->
+                <div class="block-content statistic-brand">
+                    <div class="statistic-brand__header">
+                         <p class="statistic-brand__heading">Statistic By Brand</p>
+                         <div class="statistic-brand__input">
+                             <input type="date" name="" class="statistic-brand__input-item" id="statistic-brand__input-date1">
+                             <span class="statistic-brand__arrow">→</span>
+                             <input type="date" name="" class="statistic-brand__input-item" id="statistic-brand__input-date2">
+                         </div>
+                    </div>
+ 
+                    <div class="statistic-brand__body">
+                         <p class="statistic-brand__date-info"></p>
+                         <div class="statistic-brand__total-container">
+                             <div class="statistic-brand__total-quantity">
+                                 <p class="statistic-brand__quantity">0</p>
+                                 <p class="statistic-brand__quantity-text">Total Quantities</p>
+                             </div>
+                             <div class="statistic-brand__total-sales">
+                                 <p class="statistic-brand__sales">0</p>
+                                 <p class="statistic-brand__sales-text">Total Sales</p>
+                             </div>
+                         </div>
+                         <p class="statistic-brand__info"></p>
+                         <div class="statistic-brand__chart-container">
+                             <div class="statistic-brand__chart">
+                                 <canvas id="brandCanvas"></canvas>
+                             </div>
+                         </div>
+                    </div>
+                 </div>
+ 
+                 <!-- Thong ke product -->
+                 <div class="block-content statistic-product">
+                     <div class="statistic-product__header">
+                         <div class="statistic-product__heading">Statistic By Product</div>
+                         <div class="statistic-product__inputs">
+                             <input type="date" name="" id="statistic-product__input-date1" class="statistic-product__input-date">
+                             <span class="statistic-product__arrow">→</span>
+                             <input type="date" name="" id="statistic-product__input-date2" class="statistic-product__input-date">
+                         </div>
+                     </div>
+                     <div class="statistic-product__body">
+                         <div class="statistic-product__chart-top-selling">
+                             <div class="statistic-product__desc"></div>
+                             <div class="statistic-product__chart-container">
+                                 <div class="statistic-product__chart">
+                                     <canvas id="productCanvas"></canvas>
+                                 </div>
+                                 <table class="table-note">
+                                 </table>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                <!-- Div hien thi quan ly san pham -->
+                <div class="block-content products">
+                    <div class="products__header">
+                        <p class="products__heading">
+                            Product List
+                        </p>
+                        <div class="admin__search">
+                            <i class="admin__search-icon open ti-search"></i>
+                            <div class="admin__search-container">
+                                <i class="admin__search-icon-in ti-search"></i>
+                                <input type="text" class="admin__tBSearch" placeholder="Brand, name, keywords">
+                                <i class="admin__mark-icon fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__body">
+                        <table class="products__table">
+                            <thead class="products__thead">
+                                <th class="products__th">Product Id</th>
+                                <th class="products__th">Img</th>
+                                <th class="products__th">Name</th>
+                                <th class="products__th">Price</th>
+                                <th class="products__th">Quantity</th>
+                                <th class="products__th">Brand</th>
+                                <th class="products__th">Description</th>
+                                <th class="products__th">Edit</th>
+                            </thead>
+                            <tbody class="products__tbody">
+                            </tbody>
+                        </table>
+
+                        <!-- Phan trang -->
+                        <ul class="products__pages">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Div hien thi giao dien add product -->
+                <div class="block-content admin-container-body__add-product">
+                    <p class="admin-container-body-add-product__heading">Product Form</p>
+
+                    <label class="admin-container-body-add-product__label" for="product-name">Name</label>
+                    <input class="admin-container-body-add-product__input add-product-notBlank" notBlank errNotBlank="Name can not be blank!" type="text" id="product-name">
+                    <label class="error" for="product-name"></label>
+
+                    <label class="admin-container-body-add-product__label" for="product-price">Price</label>
+                    <input class="admin-container-body-add-product__input add-product-notBlank add-product-number" notBlank errNotBlank="Price can not be blank!" numberGreaterThan="Price must be a number and greater than 0" type="text" id="product-price">
+                    <label class="error" for="product-price"></label>
+
+                    <label class="admin-container-body-add-product__label" for="">Image</label>
+                    <div class="admin-container-body-add-product__frame-img">
+                        <label for="input-file-img-product">
+                            <img src="../assets/img/admin/admin-add-product/image-placeholder.jpg" alt="Product Img" class="admin-container-body-add-product__img">
+                        </label>
+                        <input id="input-file-img-product" type="file">
+                    </div>
+                    <label class="error" for="input-file-img-product"></label>
+
+                    <label class="admin-container-body-add-product__label" for="product-quantity">Quantity</label>
+                    <input class="admin-container-body-add-product__input add-product-notBlank add-product-integer" notBlank errNotBlank="Quantity can not be blank!" numIntGreaterThan0="Quantity must be a integer and grater than 0" type="text" id="product-quantity">
+                    <label class="error" for="product-quantity"></label>
+
+                    <label class="admin-container-body-add-product__label"  for="product-brand">Brand</label>
+                    <select errNotGetValueDefault="Please choose a brand!" id="product__brand" class="admin-container-body-add-product__brand">
+                        <option value="choose brand" hidden disabled selected>Choose Brand</option>
+                        <option class="brand-option" value="seiko">Seiko</option>
+                        <option class="brand-option" value="casio">Casio</option>
+                        <option class="brand-option" value="citizen">Citizen</option>
+                        <option class="brand-option" value="orient">Orient</option>
+                    </select>
+                    <label class="error" for="product-brand"></label>
+
+                    <label class="label-product-desc admin-container-body-add-product__label" for="product-description">Description</label>
+                    <textarea notBlank errNotBlank="Description can not be blank!" id="product-description" class="admin-container-body-add-product__description add-product-notBlank" rows="8"></textarea>
+                    <label class="error" for="product-description"></label>
+
+                    <button class="admin-container-body-add-product__btn js-admin-container-body-add-product__btn" onclick="addProduct()">Add</button>
+                </div>
+
+                <!-- Div hien thi quan ly orders -->
+                <div class="block-content orders">
+                    <div class="orders__header">
+                        <p class="orders__heading">
+                            Order List
+                        </p>
+
+                        <div class="orders__input">
+                            <input type="date" class="orders__input-date" id="orders__input-date1"> 
+                            <span class="orders__arrow">→</span>
+                            <input type="date" class="orders__input-date" id="orders__input-date2">
+                        </div>
+                    </div>
+
+                    <div class="orders__body">
+                        <table class="orders__table">
+                            <thead class="orders__thead">
+                                <th class="orders__th">Order Id</th>
+                                <th class="orders__th">Date</th>
+                                <th class="orders__th">Customer</th>
+                                <th class="orders__th">Phone</th>
+                                <th class="orders__th">Address</th>
+                                <th class="orders__th">Status</th>
+                                <th class="orders__th">Detail</th>
+                            </thead>
+
+                            <tbody class="orders__tbody">
+                            </tbody>
+                        </table>
+
+                        <!-- Phan trang -->
+                        <ul class="orders__pages">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Div hien thi quan ly users -->
+                <div class="block-content users">
+                    <div class="users__header">
+                        <p class="users__heading">
+                            User List
+                        </p>
+
+                        <div class="admin__search">
+                            <i class="admin__search-icon open ti-search"></i>
+                            <div class="admin__search-container">
+                                <i class="admin__search-icon-in ti-search"></i>
+                                <input type="text" class="admin__tBSearch" placeholder="Name, username, phone">
+                                <i class="admin__mark-icon fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="users__body">
+                        <table class="users__table">
+                            <thead class="users__thead">
+                                <th class="users__th">User Id</th>
+                                <th class="users__th">Full Name</th>
+                                <th class="users__th">Username</th>
+                                <th class="users__th">Address</th>
+                                <th class="users__th">Phone</th>
+                            </thead>
+
+                            <tbody class="users__tbody">
+                            </tbody>
+                        </table>
+
+                        <!-- Phan trang -->
+                        <ul class="users__pages">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal box -->
+    <div class="modal" onclick="closeModalDesc()">
+        <div class="modal__overlay">
+        </div>
+        <div class="modal__container">
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast">
+    </div>
+    <script lang="javascript" src="../assets/js/supports.js"></script>
+    <script lang="javascript" src="../assets/js/brand.js"></script>
+    <script lang="javascript" src="../assets/js/product.js"></script>
+    <script lang="javascript" src="../assets/js/user.js"></script>
+    <script lang="javascript" src="../assets/js/detail-cart.js"></script>
+    <script lang="javascript" src="../assets/js/order.js"></script>
+    <script lang="javascript" src="../assets/js/detail-order.js"></script>
+    <script lang="javascript" src="../assets/js/validation.js"></script>
+    <script lang="javascript" src="../assets/js/productForm.js"></script>
+    <script lang="javascript" src="../assets/js/common.js"></script>
+    <script lang="javascript" src="../assets/js/toast.js"></script>
+    <!-- Import thư viện chartjs để vẽ biểu đồ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script lang="javascript" src="../assets/js/statistic-brand.js"></script>
+    <script lang="javascript" src="../assets/js/statistic-product.js"></script>
+    <script lang="javascript" src="../assets/js/run.js"></script>
+</body>
+</html>

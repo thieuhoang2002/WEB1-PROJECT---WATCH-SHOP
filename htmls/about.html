@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/img/WS_icon.svg" rel="shortcut icon" />
+    <link href="../assets/css/home.css" rel="stylesheet" />
+    <link href="../assets/css/responsive_index.css" rel="stylesheet" />
+    <link href="../assets/icon/themify-icons/themify-icons.css" rel="stylesheet" />
+
+    <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
+    <!--wow animation-->
+    <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
+    <!--wow animation-->
+    <script src="../assets/js/home.js"></script>
+    <title>Watch Shop</title>
+    <link href="../assets/img/WS_icon.svg" rel="shortcut icon" />
+    <link href="../assets/css/about_style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.2.0-web/css/all.min.css">
+    <script lang="javascript" src="../assets/JS/headerValidation.js"></script>
+    
+
+</head>
+
+<body>
+
+    <!-- Start header -->
+    <nav class="header__navbar">
+        <ul class="header__navbar-list-icon">
+            <li class="header__navbar-item">
+                <a href="" class="header__navbar-icon-link">
+                    <i class="header__navbar-icon fa-brands fa-facebook"></i>
+                </a>
+                <a href="" class="header__navbar-icon-link">
+                    <i class="header__navbar-icon fa-brands fa-instagram"></i>
+                </a>
+                <a href="" class="header__navbar-icon-link">
+                    <i class="header__navbar-icon fa-brands fa-tiktok"></i>
+                </a>
+            </li>
+        </ul>
+
+
+        <i class="header__navbar-list-titile">Welcome to Watch Shop</i>
+
+
+
+        <i class="header__navbar-list-hotline">Hotline: 0356856732</i>
+
+    </nav>
+    <div class="header__menu sticky">
+        <div class="header__logo-img">
+            <a href="index.html">
+                <img src="../assets/img/WS_Logo2.svg">
+            </a>
+        </div>
+
+        <div class="header__menu-item-mid">
+            <a href="../htmls/index.html" class="header__menu-item">Home</a>
+            <a href="../htmls/shop.html" class="header__menu-item">Shop</a>
+            <a href="../htmls/blog.html" class="header__menu-item">Blog</a>
+            <a href="../htmls/about.html" class="header__menu-item">About</a>
+            <a href="../htmls/contact.html" class="header__menu-item">Contact</a>
+        </div>
+
+        <div class="header__menu-item-right">
+            <span class="display-user-name" id="display-user-name"></span>
+            <div class="header__menu-item-right-icon" onclick="showUser()">
+                <i class="fa-regular fa-user "></i>
+            </div>
+
+            <div id="sub-nav-user">
+                <div class="sub__logout click" onclick="logout()">Logout<i class="ti-arrow-circle-right"></i>
+                </div>
+                <div id="sub-location-admin" class="sub__location__admin"></div>
+            </div>
+
+            <div class="header__menu-item-right-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+    <!-- Start model login -->
+    <div class="modal js-modalLogin">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <div class="auth-form">
+
+                <div class="auth-form__container">
+                    <div class="auth-form__headear">
+                        <h3 class="auth-form__heading">Login</h3>
+                    </div>
+
+                    <div class="auth-form__form">
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="username2">Username</label>
+                            <input notBlank2 errNotBlank2="User name can not be blank!" type="text"
+                                class="auth-form__input" name="username2" id="username2">
+                            <label class="error" for="username2"></label>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="password2">Password</label>
+                            <input notBlank2 errNotBlank2="Password can not be blank!" type="password"
+                                class="auth-form__input" name="password2" id="password2">
+                            <label class="error" for="password2"></label>
+                        </div>
+
+                        <span class="question">Don't have account? <span class="sign_up"
+                                onclick="showModelSignUp()">Sign Up<span></span>
+                            </span></span>
+
+                        <div class="button">
+                            <button type="button" class="btncancel js-btncancel-login">Cancel</button>
+                            <button type="button" class="btnLogin js-btnLogin"  onclick="checkFormLogin()">Login</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- End model login -->
+    <!-- Start model signUp -->
+    <div id="signUp" class="modal js-modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <div class="auth-form">
+
+                <div class="auth-form__container">
+                    <div class="auth-form__headear">
+                        <h3 class="auth-form__heading">Sign Up</h3>
+                        <span class="auth-form__switch-btn" onclick="showModelLogIn2()">Login</span>
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="fullName">Full Name</label>
+                            <input notBlank errNotBlank="Name can not be blank!" type="text"
+                                class="auth-form__input" name="fullName" id="fullName">
+                            <label class="error" for="fullName"></label>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="address">Address</label>
+                            <input notBlank errNotBlank="Address can not be blank!" type="text"
+                                class="auth-form__input" name="address" id="address">
+                            <label class="error" for="address"></label>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="phone">Phone</label>
+                            <input notBlank errNotBlank="Phone can not be blank!" type="text"
+                                class="auth-form__input" name="phone" id="phone">
+                            <label class="error" for="phone"></label>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="username">Username</label>
+                            <input checkUserName notBlank errNotBlank="User name can not be blank!" errUserName="Username already exists!" type="text"
+                                class="auth-form__input" name="username" id="username">
+                            <label class="error" for="username"></label>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="password">Password</label>
+                            <input notBlank errNotBlank="Password can not be blank!" type="password"
+                                class="auth-form__input" name="password" id="password">
+                            <label class="error" for="password"></label>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label" for="repeatPassword">Repeat Password</label>
+                            <input repeatpass notBlank errNotBlank="Repeat password can not be blank!" errRepeatPass="Password and repassword do not match!" type="password"
+                                class="auth-form__input" name="repeatPassword" id="repeatpassword">
+                            <label class="error" for="repeatpassword"></label>
+                        </div>
+                       
+                        <div class="button">
+                            <button type="button" class="btncancel js-btncancel-signup">Cancel</button>
+                            <button type="button" class="btnsignup js-btnsignup " onclick="checkFormSignup()">Sign Up</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End model signUp -->
+
+    <div class="banner">
+        <div class="banner-img">
+            <img src="../assets/img/slide1.jpg" alt="Alternate Text" />
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="content-img col-30">
+            <img src="../assets/img/watch/fossil.png" alt="Alternate Text" />
+        </div>
+        <div class="content-wrapper col-70">
+            <div class="content-title">ABOUT US</div>
+            <div class="content">
+                <p>
+                    Phasellus egestas nisi nisi, lobortis ultricies risus semper nec. Vestibulum pharetra ac ante ut
+                    pellentesque. Curabitur fringilla dolor quis lorem accumsan, vitae molestie urna dapibus.
+                    Pellentesque porta est ac neque bibendum viverra. Vivamus lobortis magna ut interdum laoreet. Donec
+                    gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam
+                    imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida.
+                    Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam
+                    pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem.
+                    Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac
+                    ligula. Vivamus tristique vulputate ultricies. Sed vitae ultrices orci.
+                    <br />
+                    <br />
+                    Creativity is just connecting things. When you ask creative people how they did something, they feel
+                    a little guilty because they didn't really do it, they just saw something. It seemed obvious to them
+                    after a while.
+                </p>
+                <br />
+                <br />
+                <p>- Steve Job’s</p>
+            </div>
+        </div>
+    </div>
+    <!-- Start footer -->
+    <footer class="footer">
+        <div class="footer__column">
+            <h3 class="footer__heading">Address</h3>
+            <ul class="footer__information">
+                <li class="Adress">
+                    <a class="adress"
+                        href="https://www.google.com/search?q=273+An+D.+V%C6%B0%C6%A1ng%2C+Ph%C6%B0%E1%BB%9Dng+3%2C+Qu%E1%BA%ADn+5%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000%2C+Vietnam&oq=273+An+D.+V%C6%B0%C6%A1ng%2C+Ph%C6%B0%E1%BB%9Dng+3%2C+Qu%E1%BA%ADn+5%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000%2C+Vietnam&aqs=chrome..69i57.1233j0j7&sourceid=chrome&ie=UTF-8">Address:
+                        273 An D. Vuong, Ward 3, District 5, Ho Chi Minh City, Vietnam.</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__column">
+            <h3 class="footer__heading">Customer support</h3>
+            <ul class="footer__item">
+                <li class="footer__item1">
+                    <p>Payment methods</p>
+                </li>
+                <li class="footer__item1">
+                    <p>Shipping and deliveryg</p>
+                </li>
+                <li class="footer__item1">
+                    <p>Installment purchase guide</p>
+                </li>
+            </ul>
+
+        </div>
+        <div class="footer__column">
+            <h3 class="footer__heading">About watch shop</h3>
+            <ul class="footer__item">
+                <li class="footer__item1">
+                    <p>Recruit</p>
+                </li>
+                <li class="footer__item1">
+                    <p>Watch shop terms</p>
+                </li>
+                <li class="footer__item1">
+                    <p>Privacy policy</p>
+                </li>
+                <li class="footer__item1">
+                    <p>Genuine</p>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__column">
+            <h3 class="footer__heading">New notification</h3>
+            <form action="" method="get" name="frmsubcribe" validate="">
+                <input class="txmail" type="email" name="email" value="" placeholder="email"><br><br>
+                <input class="btnsubcribe" type="button" name="btnsubcribe" value="SUBCRIBE" id="btnsubcribe">
+            </form>
+        </div>
+    </footer>
+    <!-- End footer -->
+</body>
+<script lang="javascript" src="../assets/JS/header.js"></script>
+<script src="../assets/js/signUp.js"></script>
+<script>displayUserName()</script>
+<script src="../assets/JS/user.js"></script>
+</html>

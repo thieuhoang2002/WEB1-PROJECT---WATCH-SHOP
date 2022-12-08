@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/img/WS_icon.svg" rel="shortcut icon" />
+    <link href="../assets/css/home.css" rel="stylesheet" />
+    <link href="../assets/css/responsive_index.css" rel="stylesheet" />
+    <link href="../assets/icon/themify-icons/themify-icons.css" rel="stylesheet" />
+    <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
+    <!--wow animation-->
+    <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
+    <!--wow animation-->
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script lang="javascript" src="../assets/JS/headerValidation.js"></script>
+    <title>Watch Shop Project</title>
+</head>
+
+<body>
+    <div class="home">
+
+        <!--nút chuyển lên đầu trang-->
+        <div class="ontoppage" id="btn_ontoppage"><a href="#" style="text-decoration:none; color: black"><i
+                    class="ti-angle-double-up"></i></a></div>
+        <!--nút đóng bảng hotlines-->
+        <div onclick="closehotlines();" class="close-hotlines"><i class="ti-close"></i></div>
+        <!--nút mở lại bảng hotlines-->
+        <div onclick="onpenhotlines();" class="open-hotlines"><i class="ti-angle-right"></i></div>
+        <div class="hotlines">
+            <ul>
+                <li class="hotline"><i class="ti-mobile"> </i>
+                    <p>Phone: &nbsp;</p> <a href="tel:+84 3789981215">+84 3789981215</a>
+                </li>
+                <li class="hotline"><i class="ti-facebook"></i>
+                    <p>Facebook: &nbsp;</p><a href="htpps://facebook.com/thieuhoang0903">thieuhoang0903</a>
+                </li>
+                <li class="hotline"><i class="ti-email"></i>
+                    <p>Email:&nbsp;</p><a href="mailto:mail@mail.com">mail@mail.com</a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Start header -->
+        <nav class="header__navbar">
+            <ul class="header__navbar-list-icon">
+                <li class="header__navbar-item">
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fa-brands fa-tiktok"></i>
+                    </a>
+                </li>
+            </ul>
+
+
+            <i class="header__navbar-list-titile">Welcome to Watch Shop</i>
+
+
+
+            <i class="header__navbar-list-hotline">Hotline: 0356856732</i>
+
+        </nav>
+        <div class="header__menu sticky">
+            <div class="header__logo-img">
+                <a href="index.html">
+                    <img src="../assets/img/WS_Logo2.svg">
+                </a>
+            </div>
+
+            <div class="header__menu-item-mid">
+                <a href="../htmls/index.html" class="header__menu-item">Home</a>
+                <a href="../htmls/shop.html" class="header__menu-item">Shop</a>
+                <a href="../htmls/blog.html" class="header__menu-item">Blog</a>
+                <a href="../htmls/about.html" class="header__menu-item">About</a>
+                <a href="../htmls/contact.html" class="header__menu-item">Contact</a>
+            </div>
+
+            <div class="header__menu-item-right">
+                <span class="display-user-name" id="display-user-name"></span>
+                <div class="header__menu-item-right-icon" onclick="showUser()">
+                    <i class="fa-regular fa-user "></i>
+                </div>
+                
+                <div id="sub-nav-user">
+                    <div class="sub__logout click" onclick="logout()">Logout<i class="ti-arrow-circle-right"></i>
+                    </div>
+                    <div id="sub-location-admin" class="sub__location__admin"></div>
+                </div>
+
+                <div class="header__menu-item-right-icon" >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
+        </div>
+        <!-- End header -->
+        <!-- Start model login -->
+        <div class="modal js-modalLogin">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <div class="auth-form">
+
+                    <div class="auth-form__container">
+                        <div class="auth-form__headear">
+                            <h3 class="auth-form__heading">Login</h3>
+                        </div>
+
+                        <div class="auth-form__form">
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="username2">Username</label>
+                                <input notBlank2 errNotBlank2="User name can not be blank!" type="text"
+                                    class="auth-form__input" name="username2" id="username2">
+                                <label class="error" for="username2"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="password2">Password</label>
+                                <input notBlank2 errNotBlank2="Password can not be blank!" type="password"
+                                    class="auth-form__input" name="password2" id="password2">
+                                <label class="error" for="password2"></label>
+                            </div>
+
+                            <span class="question">Don't have account? <span class="sign_up"
+                                    onclick="showModelSignUp()">Sign Up<span></span>
+                                </span></span>
+                                <!-- checkFormLogin(checkLogin()) -->
+                            <div class="button">
+                                <button type="button" class="btncancel js-btncancel-login">Cancel</button>
+                                <button type="button" class="btnLogin js-btnLogin" onclick="checkFormLogin()">Login</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- End model login -->
+        <!-- Start model signUp -->
+        <div id="signUp" class="modal js-modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <div class="auth-form">
+
+                    <div class="auth-form__container">
+                        <div class="auth-form__headear">
+                            <h3 class="auth-form__heading">Sign Up</h3>
+                            <span class="auth-form__switch-btn" onclick="showModelLogIn2()">Login</span>
+                        </div>
+
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="fullName">Full Name</label>
+                                <input notBlank errNotBlank="Name can not be blank!" type="text"
+                                    class="auth-form__input" name="fullName" id="fullName">
+                                <label class="error" for="fullName"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="address">Address</label>
+                                <input notBlank errNotBlank="Address can not be blank!" type="text"
+                                    class="auth-form__input" name="address" id="address">
+                                <label class="error" for="address"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="phone">Phone</label>
+                                <input notBlank errNotBlank="Phone can not be blank!" type="text"
+                                    class="auth-form__input" name="phone" id="phone">
+                                <label class="error" for="phone"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="username">Username</label>
+                                <input checkUserName notBlank errNotBlank="User name can not be blank!" errUserName="Username already exists!" type="text"
+                                    class="auth-form__input" name="username" id="username">
+                                <label class="error" for="username"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="password">Password</label>
+                                <input notBlank errNotBlank="Password can not be blank!" type="password"
+                                    class="auth-form__input" name="password" id="password">
+                                <label class="error" for="password"></label>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <label class="auth-form__label" for="repeatPassword">Repeat Password</label>
+                                <input repeatpass notBlank errNotBlank="Repeat password can not be blank!" errRepeatPass="Password and repassword do not match!" type="password"
+                                    class="auth-form__input" name="repeatPassword" id="repeatpassword">
+                                <label class="error" for="repeatpassword"></label>
+                            </div>
+                           
+                            <div class="button">
+                                <button type="button" class="btncancel js-btncancel-signup">Cancel</button>
+                                <button type="button" class="btnsignup js-btnsignup " onclick="checkFormSignup()">Sign Up</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End model signUp -->
+
+
+        <!--Begin: Slider-->
+        <div class="slider">
+            <div class="slide-wrapper">
+                <div class="slide">
+                    <img class="slide-img" src="../assets/img/slide2.jpg" alt="Slide1" />
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="../assets/img/slide1.jpg" alt="Slide2" />
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="../assets/img/slide3.jpg" alt="Slide3" />
+                </div>
+            </div>
+        </div>
+        <!--End: Slider-->
+        <!--Begin Content-->
+        <div class="home-content">
+            <!--Brand section-->
+            <div class="brand home-content-section">
+                <div data-wow-delay="0.2s" class="brand-title wow bounceInRight">
+                    <p>BRAND</p>
+                </div>
+                <div class="brand-content">
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 row-bottom-space wow rollIn">
+                        <div onmouseover="active_img()" onmouseout="hide_img()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/casio.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img()" onmouseout="hide_img()" class="brand-img-title title-brand1"><a
+                                href="shop.html">Casio</a></div>
+                    </div>
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 row-bottom-space wow rollIn">
+                        <div onmouseover="active_img2()" onmouseout="hide_img2()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/olympia-star.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img2()" onmouseout="hide_img2()" class="brand-img-title title-brand1">
+                            <a href="shop.html">Olym</a>
+                        </div>
+                    </div>
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 row-bottom-space wow rollIn">
+                        <div onmouseover="active_img3()" onmouseout="hide_img3()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/orient.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img3()" onmouseout="hide_img3()" class="brand-img-title title-brand1">
+                            <a href="shop.html">Orient</a>
+                        </div>
+                    </div>
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 row-bottom-space wow rollIn">
+                        <div onmouseover="active_img4()" onmouseout="hide_img4()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/bentley.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img4()" onmouseout="hide_img4()" class="brand-img-title title-brand1">
+                            <a href="shop.html">Bentley</a>
+                        </div>
+                    </div>
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 wow rollIn">
+                        <div onmouseover="active_img5()" onmouseout="hide_img5()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/fossil.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img5()" onmouseout="hide_img5()" class="brand-img-title title-brand1">
+                            <a href="shop.html">Fossil</a>
+                        </div>
+                    </div>
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 wow rollIn">
+                        <div onmouseover="active_img6()" onmouseout="hide_img6()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/tissot.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img6()" onmouseout="hide_img6()" class="brand-img-title title-brand1">
+                            <a href="shop.html">Tissot</a>
+                        </div>
+                    </div>
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 wow rollIn">
+                        <div onmouseover="active_img7()" onmouseout="hide_img7()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/mvmt.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img7()" onmouseout="hide_img7()" class="brand-img-title title-brand1">
+                            <a href="shop.html">Mvtv</a>
+                        </div>
+                    </div>
+                    <div data-wow-delay="0.2s" class="brand-wrapper col-4 wow rollIn">
+                        <div onmouseover="active_img8()" onmouseout="hide_img8()" class="brand-img">
+                            <img class="brand-img1" src="../assets/img/watch/skagen.png" alt="Alternate Text" />
+                        </div>
+                        <div onmouseover="active_img8()" onmouseout="hide_img8()" class="brand-img-title title-brand1">
+                            <a href="shop.html">Skagen</a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!--FEATURED PRODUCTS section-->
+            <div class="featured-products content-section">
+                <div data-wow-delay="0.2s" class="featured-products-title wow rollIn">
+                    <p>FEATURED PRODUCTS</p>
+                </div>
+                <div class="featured-products-img-bg"></div>
+                <div class="featured-products-content">
+                    <div class="featured-products-img col-half wow rollIn">
+
+                        <img data-wow-delay="0.2s" class="wow rollIn" src="../assets/img/watch/pierre-lannier.png"
+                            alt="Img1" />
+                    </div>
+                    <div data-wow-delay="0.2s" class="featured-products-note col-half wow rollIn">
+                        <p>
+                            <span class="brand-name">PIERRE LANNIER</span>
+                            <br /> <br /> <br />
+                            Ensuring the water resistance of a watch is an extremely important part. If water penetrates
+                            even a little, the watch can be damaged and difficult to repair. Often in between the parts
+                            of the watch will have rubber gaskets to ensure absolute tightness.
+                            <br /> <br />
+                            This is why your <a href="#" style="color: blue">Pierre Lannier</a> watchmaker pays special
+                            attention
+                            to its waterproof models. All watches are thoroughly tested to bring you the greatest
+                            satisfaction. MVTV guarantees at least 3 Pierre Lannier water resistance on each of its
+                            watches,
+                            allowing you to use your watch without fear of damaging it while washing dishes or taking a
+                            shower.
+                        </p>
+                    </div>
+                </div>
+                <div class="featured-products-img-bg2"></div>
+                <div class="featured-products-content">
+                    <div data-wow-delay="0.2s" class="featured-products-note-2 col-half wow rollIn">
+                        <p>
+                            <span class="brand-name">MVTV</span>
+                            <br /> <br /> <br />
+                            Ensuring the water resistance of a watch is an extremely important part. If water penetrates
+                            even a little, the watch can be damaged and difficult to repair. Often in between the parts
+                            of the watch will have rubber gaskets to ensure absolute tightness.
+                            <br /> <br />
+                            This is why your <a href="#" style="color: blue">MVTV</a> watchmaker pays special attention
+                            to its waterproof models. All watches are thoroughly tested to bring you the greatest
+                            satisfaction. MVTV guarantees at least 3 ATM water resistance on each of its watches,
+                            allowing you to use your watch without fear of damaging it while washing dishes or taking a
+                            shower.
+                        </p>
+                    </div>
+                    <div class="featured-products-img-2 col-half wow rollIn">
+                        <img data-wow-delay="0.2s" class=" wow rollIn" src="../assets/img/watch/mvmt.png" alt="Img1" />
+                    </div>
+                </div>
+                <div class="featured-products-img-bg3"></div>
+                <div class="featured-products-content">
+                    <div class="featured-products-img col-half">
+                        <img data-wow-delay="0.2s" class="wow rollIn" src="../assets/img/watch/skagen.png" alt="Img1" />
+                    </div>
+                    <div data-wow-delay="0.2s" class="featured-products-note col-half wow rollIn">
+                        <p>
+                            <span class="brand-name">SKAGEN</span>
+                            <br /> <br /> <br />
+                            Ensuring the water resistance of a watch is an extremely important part. If water penetrates
+                            even a little, the watch can be damaged and difficult to repair. Often in between the parts
+                            of the watch will have rubber gaskets to ensure absolute tightness.
+                            <br /> <br />
+                            This is why your <a href="#" style="color: blue">Skagen</a> watchmaker pays special
+                            attention
+                            to its waterproof models. All watches are thoroughly tested to bring you the greatest
+                            satisfaction. Skagen guarantees at least 3 ATM water resistance on each of its watches,
+                            allowing you to use your watch without fear of damaging it while washing dishes or taking a
+                            shower.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--New products section-->
+            <div class="new-products content-section">
+                <div data-wow-delay="0.2s" class="new-products-title wow rollIn">
+                    <p>NEW PRODUCTS</p>
+                </div>
+                <div class="list">
+                    <div class="item active" id="item_0">
+                        <img src="../assets/img/watch/seiko-SRPD76K.png" alt="">
+                        <img src="../assets/img/watch/seiko-SRPD77K.png" alt="">
+                        <img src="../assets/img/watch/seiko-SRPD78K.png" alt="">
+                        <img src="../assets/img/watch/seiko-SRPD79K.png" alt="">
+                        <div class="list-content">
+                            <div class="itemtext"> <img src="../assets/img/watch/seiko-SRPD76K.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a
+                                        href="#">Seiko-SRPD76K</a></span> </div>
+                            <div class="itemtext"> <img src="../assets/img/watch/seiko-SRPD77K.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a
+                                        href="#">Seiko-SRPD77K</a></span> </div>
+                            <div class="itemtext"> <img src="../assets/img/watch/seiko-SRPD78K.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a
+                                        href="#">Seiko-SRPD78K</a></span> </div>
+                            <div class="itemtext"> <img src="../assets/img/watch/seiko-SRPD79K.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a
+                                        href="#">Seiko-SRPD79K</a></span> </div>
+                        </div>
+                    </div>
+                    <div class="item hide" id="item_1">
+                        <img src="../assets/img/watch/seiko-SNK803K.png" alt="">
+                        <img src="../assets/img/watch/skagen.png" alt="">
+                        <img src="../assets/img/watch/mvmt.png" alt="">
+                        <img src="../assets/img/watch/olym-pianus.png" alt="">
+                        <div class="list-content">
+                            <div class="itemtext"> <img src="../assets/img/watch/olympia-star.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a
+                                        href="#">Seiko-SNK803K</a></span> </div>
+                            <div class="itemtext"> <img src="../assets/img/watch/fossil.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a
+                                        href="#">Skagen</a></span> </div>
+                            <div class="itemtext"> <img src="../assets/img/watch/mvmt.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a
+                                        href="#">MVTV</a></span> </div>
+                            <div class="itemtext"> <img src="../assets/img/watch/casio.png" alt=""> <span
+                                    class="product-cost">45$</span><span class="product-name"><a href="#">Olym
+                                        Pianus</a></span> </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Menu chuyển phần new products-->
+                <div class="menu">
+                    <ul>
+                        <li id="prev" onclick="Loadprev();"><i class="ti-control-backward icon1 hidebtn"></i></li>
+                        <li id="next" onclick="Loadnext();"><i class="ti-control-forward icon2"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Content-->
+        <!-- Start footer -->
+        <footer class="footer">
+            <div class="footer__column">
+                <h3 class="footer__heading">Address</h3>
+                <ul class="footer__information">
+                    <li class="Adress">
+                        <a class="adress"
+                            href="https://www.google.com/search?q=273+An+D.+V%C6%B0%C6%A1ng%2C+Ph%C6%B0%E1%BB%9Dng+3%2C+Qu%E1%BA%ADn+5%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000%2C+Vietnam&oq=273+An+D.+V%C6%B0%C6%A1ng%2C+Ph%C6%B0%E1%BB%9Dng+3%2C+Qu%E1%BA%ADn+5%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000%2C+Vietnam&aqs=chrome..69i57.1233j0j7&sourceid=chrome&ie=UTF-8">Address:
+                            273 An D. Vuong, Ward 3, District 5, Ho Chi Minh City, Vietnam.</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">Customer support</h3>
+                <ul class="footer__item">
+                    <li class="footer__item1">
+                        <p>Payment methods</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Shipping and deliveryg</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Installment purchase guide</p>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">About watch shop</h3>
+                <ul class="footer__item">
+                    <li class="footer__item1">
+                        <p>Recruit</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Watch shop terms</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Privacy policy</p>
+                    </li>
+                    <li class="footer__item1">
+                        <p>Genuine</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">New notification</h3>
+                <form action="" method="get" name="frmsubcribe" validate="">
+                    <input class="txmail" type="email" name="email" value="" placeholder="email"><br><br>
+                    <input class="btnsubcribe" type="button" name="btnsubcribe" value="SUBCRIBE" id="btnsubcribe">
+                </form>
+            </div>
+        </footer>
+        <!-- End footer -->
+    </div>
+</body>
+<script lang="javascript">
+    new WOW().init();
+</script>
+<script lang="javascript" src="../assets/JS/header.js"></script>
+
+<script lang="javascript" src="../assets/js/supports.js"></script>
+<script lang="javascript" src="../assets/js/brand.js"></script>
+<script lang="javascript" src="../assets/js/product.js"></script>
+<script lang="javascript" src="../assets/js/user.js"></script>
+<script lang="javascript" src="../assets/js/detail-cart.js"></script>
+<script lang="javascript" src="../assets/js/order.js"></script>
+<script lang="javascript" src="../assets/js/detail-order.js"></script>
+<script lang="javascript" src="../assets/JS/data.js"></script>
+<script src="../assets/js/home.js"></script>
+<script src="../assets/js/signUp.js"></script>
+<script>displayUserName()</script>
+</html>
